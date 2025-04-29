@@ -1,0 +1,1 @@
+-- This file is intentionally empty as initial data is handled in migrations

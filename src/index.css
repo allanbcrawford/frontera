@@ -1,0 +1,200 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 97%;
+    --foreground: 0 0% 0%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 0%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 0%;
+
+    --primary: 0 0% 0%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 0 0% 96%;
+    --secondary-foreground: 0 0% 0%;
+
+    --muted: 0 0% 96%;
+    --muted-foreground: 0 0% 45%;
+
+    --accent: 0 0% 96%;
+    --accent-foreground: 0 0% 0%;
+
+    --success: 142 84% 40%;
+    --success-light: 142 84% 95%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 0 0% 92%;
+    --input: 0 0% 92%;
+    --ring: 0 0% 80%;
+
+    --radius: 0.5rem;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-[#F8F9FA] text-foreground antialiased;
+  }
+
+  /* Custom scrollbar styling */
+  ::-webkit-scrollbar {
+    @apply w-1.5;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-muted rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-muted-foreground/30;
+  }
+}
+
+@layer utilities {
+  .glass-card {
+    @apply bg-white/60 backdrop-blur-md border border-white/20 shadow-subtle;
+  }
+  
+  .frosted-glass {
+    @apply bg-white/80 backdrop-blur-md border border-white/30 shadow-glass;
+  }
+  
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+@layer components {
+  .animate-in {
+    animation-name: fade-in;
+    animation-duration: 0.3s;
+    animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    animation-fill-mode: forwards;
+  }
+  
+  .animate-in-delayed {
+    opacity: 0;
+    animation-name: fade-in;
+    animation-duration: 0.3s;
+    animation-delay: 0.1s;
+    animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    animation-fill-mode: forwards;
+  }
+  
+  .slide-in-from-bottom {
+    animation-name: slide-up;
+    animation-duration: 0.4s;
+    animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    animation-fill-mode: forwards;
+  }
+
+  .card {
+    @apply bg-white rounded-lg border border-gray-100 shadow-sm;
+  }
+
+  .btn-primary {
+    @apply px-4 py-2 bg-black text-white rounded-lg hover:bg-gray-800 transition-colors;
+  }
+
+  .btn-secondary {
+    @apply px-4 py-2 bg-white text-gray-600 rounded-lg border border-gray-100 hover:bg-gray-50 transition-colors;
+  }
+
+  .input-base {
+    @apply px-3 py-2 bg-gray-50 rounded-lg text-sm border-none focus:outline-none focus:ring-1 focus:ring-gray-200;
+  }
+
+  .input-search {
+    @apply pl-10 pr-4 py-2 bg-gray-50 rounded-lg text-sm border-none focus:outline-none focus:ring-1 focus:ring-gray-200;
+  }
+
+  .table-base {
+    @apply w-full;
+  }
+
+  .table-base thead tr {
+    @apply text-left text-sm text-gray-500 border-b border-gray-100;
+  }
+
+  .table-base th {
+    @apply pb-3 font-medium;
+  }
+
+  .table-base tbody {
+    @apply divide-y divide-gray-100;
+  }
+
+  .table-base tbody tr {
+    @apply text-sm hover:bg-gray-50 transition-colors;
+  }
+
+  .table-base td {
+    @apply py-3;
+  }
+
+  .status-indicator {
+    @apply w-2 h-2 rounded-full;
+  }
+
+  .status-indicator.on {
+    @apply bg-[#10B981];
+  }
+
+  .status-indicator.off {
+    @apply bg-gray-300;
+  }
+
+  .progress-bar {
+    @apply h-2 bg-gray-100 rounded-full overflow-hidden;
+  }
+
+  .progress-bar-fill {
+    @apply h-full rounded-full transition-all duration-300;
+  }
+
+  .progress-bar-fill.complete {
+    @apply bg-[#10B981];
+  }
+
+  .progress-bar-fill.partial {
+    @apply bg-yellow-400;
+  }
+
+  .progress-bar-fill.empty {
+    @apply bg-gray-200;
+  }
+
+  .nav-link {
+    @apply text-gray-600 hover:text-gray-900 transition-colors;
+  }
+
+  .nav-link.active {
+    @apply text-black font-medium;
+  }
+
+  .pagination-item {
+    @apply w-8 h-8 flex items-center justify-center rounded-lg text-sm;
+  }
+
+  .pagination-item.active {
+    @apply bg-black text-white;
+  }
+
+  .pagination-item.inactive {
+    @apply text-gray-500 hover:bg-gray-100;
+  }
+}
